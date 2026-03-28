@@ -1,0 +1,42 @@
+<section class="page">
+    <p class="page__tag">// contact</p>
+    <h1 class="page__title">Contact</h1>
+
+    <div class="contact-layout">
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <a href="mailto:guillaumedeloris@outlook.fr" class="contact-link">guillaumedeloris@outlook.fr</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/guillaume-deloris" target="_blank" class="contact-link">github.com/guillaume-deloris</a>
+            </div>
+        </div>
+
+        {{#if success}}
+            <p class="form-feedback form-feedback--success">Message envoyé, je reviens vers toi rapidement.</p>
+        {{/if}}
+        {{#if error}}
+            <p class="form-feedback form-feedback--error">Une erreur s'est produite, réessaie ou envoie un mail directement.</p>
+        {{/if}}
+
+        <form class="contact-form" action="/contact" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="name">Nom</label>
+                <input class="form-input" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-input form-textarea" id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
+
+    </div>
+</section>

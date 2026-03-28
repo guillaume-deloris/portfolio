@@ -1,0 +1,47 @@
+<section class="page">
+    <p class="page__tag">// nasa apod</p>
+    <h1 class="page__title">Astronomy Picture of the Day</h1>
+    <p class="page__desc">Une image ou vidéo spatiale chaque jour, sélectionnée par la NASA.</p>
+
+    <form class="apod-date-form" action="/nasa" method="GET">
+        <p class="apod-hint">Choisis une date pour explorer les images du passé (depuis le 16 juin 1995).</p>
+        <input
+            class="form-input apod-date-input"
+            type="date"
+            name="date"
+            value="{{apod.date}}"
+            min="1995-06-16"
+            max="{{today}}"
+        >
+        <button type="submit" class="btn">Voir</button>
+    </form>
+
+    {{#if error}}
+        <p class="form-feedback form-feedback--error">Impossible de charger l'image NASA, réessaie plus tard.</p>
+    {{/if}}
+
+    {{#if apod}}
+        <div class="apod">
+            <div class="apod__meta">
+                <span class="apod__date">{{apod.date}}</span>
+                {{#if apod.copyright}}
+                    <span class="apod__copyright">© {{apod.copyright}}</span>
+                {{/if}}
+            </div>
+
+            <h2 class="apod__title">{{apod.title}}</h2>
+
+            {{#if (eq apod.mediaType "image")}}
+                <a href="{{apod.hdurl}}" target="_blank">
+                    <img class="apod__img" src="{{apod.url}}" alt="{{apod.title}}">
+                </a>
+            {{else}}
+                <div class="apod__video">
+                    <iframe src="{{apod.url}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            {{/if}}
+
+            <p class="apod__explanation">{{apod.explanation}}</p>
+        </div>
+    {{/if}}
+</section>
