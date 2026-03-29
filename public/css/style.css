@@ -9,18 +9,23 @@
     --bg-2: #111111;
     --border: #1e1e1e;
     --text: #d4d4d4;
-    --text-muted: #555;
+    --text-muted: #bbb;
     --accent: #00ff88;
     --sidebar-w: 260px;
     --font-mono: "Space Mono", monospace;
-    --font-display: "Syne", sans-serif;
+    --font-display: "DM Sans", sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
 }
 
 body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
     line-height: 1.6;
 }
 
@@ -47,14 +52,14 @@ body {
 
 .sidebar__tag {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-sm);
     color: var(--accent);
     letter-spacing: 0.1em;
 }
 
 .sidebar__name {
     font-family: var(--font-display);
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 800;
     color: #fff;
     margin-top: 8px;
@@ -62,7 +67,7 @@ body {
 }
 
 .sidebar__role {
-    font-size: 11px;
+    font-size: var(--text-sm);
     color: var(--text-muted);
     margin-top: 4px;
     letter-spacing: 0.05em;
@@ -82,7 +87,7 @@ body {
 
 .nav-link {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-sm);
     color: var(--text-muted);
     text-decoration: none;
     padding: 8px 12px;
@@ -109,7 +114,7 @@ body {
 }
 
 .sidebar__status {
-    font-size: 11px;
+    font-size: var(--text-sm);
     color: var(--text-muted);
     display: flex;
     align-items: center;
@@ -139,7 +144,7 @@ body {
 
 /* Hero */
 .hero__intro {
-    font-size: 12px;
+    font-size: var(--text-base);
     color: var(--text-muted);
     letter-spacing: 0.1em;
     margin-bottom: 12px;
@@ -147,7 +152,7 @@ body {
 
 .hero__name {
     font-family: var(--font-display);
-    font-size: clamp(48px, 6vw, 80px);
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 800;
     color: #fff;
     line-height: 1;
@@ -155,9 +160,8 @@ body {
 }
 
 .hero__desc {
-    font-size: 14px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
-    max-width: 480px;
     line-height: 1.8;
     margin-bottom: 40px;
 }
@@ -166,7 +170,7 @@ body {
 .btn {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--text-sm);
     color: var(--accent);
     border: 1px solid var(--accent);
     padding: 12px 24px;
@@ -182,7 +186,7 @@ body {
 
 /* Page générique */
 .page__tag {
-    font-size: 12px;
+    font-size: var(--text-base);
     color: var(--accent);
     letter-spacing: 0.1em;
     margin-bottom: 12px;
@@ -190,7 +194,7 @@ body {
 
 .page__title {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
     font-weight: 800;
     color: #fff;
     line-height: 1;
@@ -198,9 +202,8 @@ body {
 }
 
 .page__desc {
-    font-size: 14px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
-    max-width: 480px;
     line-height: 1.8;
 }
 
@@ -212,9 +215,8 @@ body {
 }
 
 .home-bio {
-    font-size: 14px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
-    max-width: 560px;
     line-height: 1.9;
 }
 
@@ -228,7 +230,7 @@ body {
 
 .stack-item {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--accent);
     border: 1px solid rgba(0, 255, 136, 0.2);
     padding: 6px 14px;
@@ -240,7 +242,6 @@ body {
     margin-top: 20px;
     border: 1px solid var(--border);
     padding: 24px 28px;
-    max-width: 520px;
     transition: border-color 0.2s;
 }
 
@@ -257,19 +258,19 @@ body {
 
 .project-card__title {
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
     color: #fff;
 }
 
 .project-card__tech {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
     letter-spacing: 0.06em;
 }
 
 .project-card__desc {
-    font-size: 13px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 20px;
@@ -281,7 +282,7 @@ body {
 }
 
 .project-link {
-    font-size: 12px;
+    font-size: var(--text-sm);
     color: var(--accent);
     text-decoration: none;
     letter-spacing: 0.06em;
@@ -338,7 +339,7 @@ body {
 
 .cv-name {
     font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 52px);
+    font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 800;
     color: #fff;
     line-height: 1;
@@ -346,7 +347,7 @@ body {
 }
 
 .cv-title {
-    font-size: 13px;
+    font-size: var(--text-sm);
     color: var(--accent);
     letter-spacing: 0.1em;
     margin-bottom: 20px;
@@ -357,7 +358,7 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
-    font-size: 12px;
+    font-size: var(--text-sm);
 }
 
 .cv-contact-link {
@@ -416,20 +417,20 @@ body {
 
 .cv-job__company {
     font-family: var(--font-display);
-    font-size: 15px;
+    font-size: var(--text-base);
     font-weight: 700;
     color: #fff;
     margin-bottom: 4px;
 }
 
 .cv-job__role {
-    font-size: 12px;
+    font-size: var(--text-sm);
     color: var(--accent);
     letter-spacing: 0.05em;
 }
 
 .cv-job__date {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
     white-space: nowrap;
     letter-spacing: 0.05em;
@@ -443,7 +444,7 @@ body {
 }
 
 .cv-list li {
-    font-size: 13px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
     padding-left: 16px;
     position: relative;
@@ -455,7 +456,7 @@ body {
     position: absolute;
     left: 0;
     color: var(--accent);
-    font-size: 11px;
+    font-size: var(--text-xs);
 }
 
 /* Formation */
@@ -467,14 +468,14 @@ body {
 }
 
 .cv-edu__year {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--accent);
     letter-spacing: 0.08em;
     min-width: 36px;
 }
 
 .cv-edu__label {
-    font-size: 13px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -505,7 +506,7 @@ body {
 }
 
 .skill-block__title {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
     letter-spacing: 0.1em;
     margin-bottom: 16px;
@@ -515,7 +516,6 @@ body {
 /* Contact */
 .contact-layout {
     margin-top: 40px;
-    max-width: 520px;
 }
 
 .contact-info {
@@ -534,7 +534,7 @@ body {
 }
 
 .contact-label {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -542,7 +542,7 @@ body {
 }
 
 .contact-link {
-    font-size: 13px;
+    font-size: var(--text-base);
     color: var(--text);
     text-decoration: none;
     transition: color 0.2s;
@@ -566,7 +566,7 @@ body {
 }
 
 .form-label {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -577,7 +577,7 @@ body {
     border: 1px solid var(--border);
     color: var(--text);
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: var(--text-base);
     padding: 12px 16px;
     outline: none;
     transition: border-color 0.2s;
@@ -594,7 +594,7 @@ body {
 }
 
 .form-feedback {
-    font-size: 13px;
+    font-size: var(--text-base);
     padding: 12px 16px;
     margin-bottom: 24px;
     border-left: 2px solid;
@@ -637,19 +637,19 @@ body {
 }
 
 .apod__date {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--accent);
     letter-spacing: 0.1em;
 }
 
 .apod__copyright {
-    font-size: 11px;
+    font-size: var(--text-xs);
     color: var(--text-muted);
 }
 
 .apod__title {
     font-family: var(--font-display);
-    font-size: clamp(20px, 3vw, 32px);
+    font-size: clamp(1.25rem, 3vw, 2rem);
     font-weight: 700;
     color: #fff;
     margin-bottom: 24px;
@@ -685,10 +685,9 @@ body {
 }
 
 .apod__explanation {
-    font-size: 13px;
+    font-size: var(--text-lg);
     color: var(--text-muted);
     line-height: 1.9;
-    max-width: 680px;
 }
 
 .apod-date-form .btn {
@@ -701,3 +700,31 @@ body {
     background: var(--accent);
     color: #000;
 }
+
+.apod-hint {
+    font-size: var(--text-base);
+    font-size: var(--text-base);
+    color: var(--text);
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+}
+
+.bio-quote {
+    margin-top: 28px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+    font-size: var(--text-base);
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.bio-quote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: var(--text-xs);
+    font-style: normal;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+}
+
