@@ -18,5 +18,29 @@
             {{{body}}}
         </main>
     </div>
+    <script>
+        const burger = document.getElementById("burger");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+
+        function toggleMenu(open) {
+            burger.classList.toggle("open", open);
+            sidebar.classList.toggle("open", open);
+            overlay.classList.toggle("visible", open);
+            burger.setAttribute("aria-expanded", open);
+        }
+
+        burger.addEventListener("click", () => {
+            const isOpen = sidebar.classList.contains("open");
+            toggleMenu(!isOpen);
+        });
+
+        overlay.addEventListener("click", () => toggleMenu(false));
+
+        // Ferme aussi au clic sur un lien nav (navigation mobile)
+        sidebar.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", () => toggleMenu(false));
+        });
+    </script>
 </body>
 </html>
