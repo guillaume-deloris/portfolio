@@ -1,9 +1,12 @@
 import express from "express";
+import pool from "../db.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.render("home", { title: "Portfolio", homeActive: true });
+router.get("/", async (req, res) => {
+    await pool.query("INSERT INTO visits (visited_at) VALUES (NOW())");
+    const { rows } = await pool.query("SELECT COUNT(*) FROM visits");
+    res.render("home", { title: "Portfolio", homeActive: true, visits: rows[0].count });
 });
 
 router.get("/skills", (req, res) => {
@@ -16,6 +19,17 @@ router.get("/cv", (req, res) => {
 
 router.get("/contact", (req, res) => {
     res.render("contact", { title: "Contact", contactActive: true });
+});
+
+router.get("/scores", async (req, res) => {
+    const { rows } = await pool.query("SELECT * FROM scores ORDER BY score DESC");
+    res.render("scores", { title: "Scores", scoresActive: true, scores: rows });
+});
+
+router.post("/scores", async (req, res) => {
+    const { player, game, score } = req.body;
+    await pool.query("INSERT INTO scores (player, game, score) VALUES ($1, $2, $3)", [player, game, score]);
+    res.redirect("/scores");
 });
 
 router.get("/nasa", async (req, res) => {

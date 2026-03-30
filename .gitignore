@@ -1,3 +1,6 @@
 .env
 node_modules/
 notes.txt
+echo "*.docx" >> .gitignore
+echo "~$*" >> .gitignore
+echo "*.tmp" >> .gitignore
