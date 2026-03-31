@@ -4,3 +4,4 @@ notes.txt
 echo "*.docx" >> .gitignore
 echo "~$*" >> .gitignore
 echo "*.tmp" >> .gitignore
+Serveur VPS.docx

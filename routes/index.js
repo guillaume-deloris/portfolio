@@ -2,9 +2,13 @@ import express from "express";
 import pool from "../db.js";
 
 const router = express.Router();
+const EXCLUDED_IPS = process.env.EXCLUDED_IPS?.split(",") || [];
 
 router.get("/", async (req, res) => {
-    await pool.query("INSERT INTO visits (visited_at) VALUES (NOW())");
+    const ip = req.headers["x-forwarded-for"]?.split(",")[0].trim() || req.socket.remoteAddress;
+    if (!EXCLUDED_IPS.includes(ip)) {
+        await pool.query("INSERT INTO visits (visited_at) VALUES (NOW())");
+    }
     const { rows } = await pool.query("SELECT COUNT(*) FROM visits");
     res.render("home", { title: "Portfolio", homeActive: true, visits: rows[0].count });
 });
