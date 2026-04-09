@@ -3,12 +3,21 @@ import pool from "../db.js";
 
 const router = express.Router();
 const EXCLUDED_IPS = process.env.EXCLUDED_IPS?.split(",") || [];
+const BOT_PATTERNS = [
+    "bot", "crawler", "spider", "crawling", "scraper",
+    "curl", "wget", "python", "java", "go-http", "axios"
+];
 
 router.get("/", async (req, res) => {
+    const userAgent = req.headers["user-agent"]?.toLowerCase() || "";
+    const isBot = !userAgent || BOT_PATTERNS.some(pattern => userAgent.includes(pattern));
     const ip = req.headers["x-forwarded-for"]?.split(",")[0].trim() || req.socket.remoteAddress;
-    if (!EXCLUDED_IPS.includes(ip)) {
-        await pool.query("INSERT INTO visits (visited_at) VALUES (NOW())");
+    const isExcluded = EXCLUDED_IPS.includes(ip);
+
+    if (!isBot && !isExcluded) {
+        await pool.query("INSERT INTO visits (visited_at, user_agent) VALUES (NOW(),$1)",[req.headers["user-agent"] || null]);
     }
+
     const { rows } = await pool.query("SELECT COUNT(*) FROM visits");
     res.render("home", { title: "Portfolio", homeActive: true, visits: rows[0].count });
 });
