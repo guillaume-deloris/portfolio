@@ -5,3 +5,4 @@ echo "*.docx" >> .gitignore
 echo "~$*" >> .gitignore
 echo "*.tmp" >> .gitignore
 Serveur VPS.docx
+planche de comptage.docx
