@@ -1,7 +1,7 @@
 <section class="page">
     <p class="page__tag">// API NASA APOD</p>
-    <h1 class="page__title">Astronomy Picture of the Day</h1>
-    <p class="page__desc">Chaque jour depuis le 16 juin 1995, la NASA publie une image ou vidéo spatiale.</p>
+    <h1 class="page__title">Astronomy Picture Of the Day (APOD)</h1>
+    <p class="page__desc">Chaque jour depuis le 16 juin 1995, la NASA publie une image ou vidéo spatiale. L'API APOD permet de récupérer ces images avec le lien ci dessous.</p>
 
     <form class="apod-date-form" action="/nasa" method="GET">
         <p class="apod-hint">Choisissez une date ici pour explorer les images du passé</p>
@@ -17,7 +17,7 @@
     </form>
 
     {{#if error}}
-        <p class="form-feedback form-feedback--error">Impossible de charger l'image NASA, réessaie plus tard.</p>
+        <p class="form-feedback form-feedback--error">L'API de la NASA ne répond pas, impossible de charger l'image.</p>
     {{/if}}
 
     {{#if apod}}
