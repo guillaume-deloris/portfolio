@@ -544,7 +544,7 @@ body {
     color: var(--text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    min-width: 60px;
+    min-width: 120px;
 }
 
 .contact-link {
